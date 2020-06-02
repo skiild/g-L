@@ -4,21 +4,10 @@
 #include <iostream>
 #include <fstream>
 
-
-#include "Mesure.h"
 #include "Capteur.h"
-
-/*
-#include "Purificataeur.h"
-#include "Entreprise.h"
+#include "Purificateur.h"
+//#include "Societe.h"
 #include "Particulier.h"
-*/
-
-
-enum Type { O3, S02, N02, PM10 };
-
-
-
 
 
 
@@ -28,38 +17,37 @@ class Lecteur {
 
 public:
 
-	//--------------VERIFICATION 
+//--------------VERIFICATION 
 
-		//indique si on peut lire dans un fichier
+	//indique si on peut lire dans un fichier
 
-		/*
-		EXEMPLE
+	/*
+	EXEMPLE
 
-		while( flux_capIsGood() ){
-			Capteur c = lireCapteur();
-		}
+	while( flux_capIsGood() ){
+		Capteur c = lireCapteur();
+	}	
+	*/
 
-		*/
-
-
+	
 	bool flux_capIsGood();
 	bool flux_mesIsGood();
 	bool flux_purIsGood();
-	bool flux_entIsGood();
+	bool flux_socIsGood();
 	bool flux_parIsGood();
 
 
-	//-------------METHODES DE LECTURE DE FICHIERS
+//-------------METHODES DE LECTURE DE FICHIERS
 
-		//type de retour à changer
-	void lireCapteur(); 	// retourne un Capteur
-	void lireMesure(); 		// retourne un Mesure
-	void lirePurificateur();// retourne un Purificateur
-	void lireEntreprise();	// retourne une Entreprise
-	void lireParticulier();	// retourne un Particulier
+	//type de retour Ã  changer
+	Capteur lireCapteur(); 			
+	Mesure lireMesure(); 			
+	Purificateur lirePurificateur();// retourne un Purificateur
+	void lireSociete();				
+	Particulier lireParticulier();			
 
-	Lecteur();
-	~Lecteur();
+	Lecteur();	
+	virtual ~Lecteur();
 
 private:
 
@@ -67,9 +55,9 @@ private:
 	ifstream flux_cap;
 	ifstream flux_mes;
 	ifstream flux_pur;
-	ifstream flux_ent;
+	ifstream flux_soc;
 	ifstream flux_par;
 
-
+	
 };
 #endif // LECTEUR
