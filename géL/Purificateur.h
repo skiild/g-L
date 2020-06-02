@@ -3,18 +3,22 @@
 #include <ctime>
 using namespace std;
 class Purificateur {
+
 public:
-	Purificateur(int latitude, int longitude, long id);
+
+	Purificateur(float latitude, float longitude, long id, time_t dateInstallation, time_t dateDesinstallation);
 	~Purificateur();
 	time_t getdateInstallation();
-	int getLatititude();
-	int getlongitude();
+	time_t getdateDesinstallation();
+	float getLatititude();
+	float getlongitude();
 	long getId();
-	void setCoordinates(int latitude, int longitude);
+	void setCoordinates(float latitude, float longitude);
 private:
 	long id;
 	time_t dateInstallation;
-	int latitude;
-	int longitude;
+	time_t dateDesinstallation;
+	float latitude;
+	float longitude;
 };
-#endif PURIFICATEUR
+#endif //PURIFICATEUR
