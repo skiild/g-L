@@ -25,7 +25,7 @@ using namespace std;
 // Role de la classe <Particulier>
 //
 //Permet de gerer le compte d'un particulier dont le telephone
-//capte des données avant de les transmettre a l'application
+//capte des donnÃ©es avant de les transmettre a l'application
 //------------------------------------------------------------------------
 
 class Particulier
@@ -44,7 +44,7 @@ public:
 
 	//-------------------------------------------- Constructeurs - destructeur
 
-	Particulier(long, long); //joue le rôle de creerCompte de notre diagramme
+	Particulier(long id, long capteurid); //joue le rÃ´le de creerCompte de notre diagramme
 	// Mode d'emploi :
 //
 	// Contrat :
@@ -68,11 +68,10 @@ protected:
 	//----------------------------------------------------- Methodes protegees
 
 	//----------------------------------------------------- Attributs proteges
-	int id;
+	long id;
 	bool connecte;
 	list <time_t> points;
 	long idCapteur;
 };
 
 #endif // PARTICULIER_H
-

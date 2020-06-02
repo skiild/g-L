@@ -1,12 +1,12 @@
 /*************************************************************************
 						   Particulier  -  description
 							 -------------------
-	début                : $30/05/2020$
+	dÃ©but                : $30/05/2020$
 	copyright            : (C) $2020$ par $ESSAYED-MESSAOUDI Sana$
 	e-mail               : $sana.essayed-messaoudi@insa-lyon.fr$
 *************************************************************************/
 
-//---------- Réalisation de la classe <Particulier> (fichier Particulier.cpp) ------------
+//---------- RÃ©alisation de la classe <Particulier> (fichier Particulier.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -40,7 +40,8 @@ Particulier::Particulier(long id, long capteurid)
 {
 	this->id = id;
 	this->idCapteur = capteurid;
-	this->points;
+	//this->points = NULL;
+
 #ifdef MAP
 	cout << "Appel au constructeur de <Particulier>" << endl;
 #endif
@@ -79,5 +80,4 @@ bool Particulier::estConnecte() {
 
 //------------------------------------------------------------------ PRIVE
 
-//----------------------------------------------------- Méthodes protégées
-
+//----------------------------------------------------- MÃ©thodes protÃ©gÃ©es
