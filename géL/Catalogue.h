@@ -15,6 +15,7 @@ public:
 	list<Mesure> afficherMesures(Capteur c);
 	list<Capteur>afficherCapteurs();
 	void ajouterCapteur(Capteur c);
+	void ajouterMesure(Capteur c, Mesure m);
 private:
 	list<Capteur> capteur;
 	struct CalculMoy { int compteur = 0; float valeur = 0; vector<float> palier; int indice = 10; };

@@ -36,9 +36,9 @@ list<Mesure> Capteur::getMesures()
 	return mesure;
 }
 
-void Capteur::addMesure(float valeur, Mesure::Type type, time_t temps)
+void Capteur::addMesure(Mesure m)
 {
-	mesure.push_back(Mesure(valeur, ++nbMesure, type, temps));
+	mesure.push_back(m);
 }
 
 
