@@ -36,7 +36,7 @@ list<Mesure> Capteur::getMesures()
 	return mesure;
 }
 
-void Capteur::addMesure(m)
+void Capteur::addMesure(Mesure m)
 {
 	mesure.push_back(m);
 }

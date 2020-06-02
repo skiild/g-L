@@ -2,6 +2,7 @@
 #define SOCIETE
 #include "Purificateur.h"
 #include <string>
+#include <list>
 #include <ctime>
 
 using namespace std;

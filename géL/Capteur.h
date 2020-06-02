@@ -13,7 +13,7 @@ public:
 	float getLongitude();
 	string getDescription();
 	list<Mesure> getMesures();
-	void addMesure(m);
+	void addMesure(Mesure m);
 	Capteur(long id, float lattitude, float longitude, string description);
 	~Capteur();
 private:
