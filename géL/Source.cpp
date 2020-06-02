@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-	cout << "yolo :) xD";
+	cout << "yolo ECHO ECHO";
 	return 0;
 }
