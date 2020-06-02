@@ -79,3 +79,8 @@ void Catalogue::ajouterCapteur(Capteur c)
 {
 	capteur.push_back(c);
 }
+
+void Catalogue::ajouterMesure(Capteur c, Mesure m)
+{
+	c.addMesure(m);
+}

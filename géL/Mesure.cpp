@@ -10,6 +10,7 @@ Mesure::Mesure(float valeur, long id, Type type, time_t temps)
 
 Mesure::~Mesure()
 {
+	
 }
 
 Mesure::Type Mesure::getType()
