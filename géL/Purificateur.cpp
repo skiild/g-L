@@ -8,7 +8,7 @@ Purificateur::Purificateur(int latitude, int longitude, long id)
 	this->id = id;
 }
 
-Purificateur::~Purificateur
+Purificateur::~Purificateur()
 {
 }
 
@@ -22,17 +22,17 @@ int Purificateur::getlongitude()
 	return longitude;
 }
 
-long getId()
+long Purificateur::getId()
 {
 	return id;
 }
 
 time_t Purificateur::getdateInstallation()
 {
-	return dateInstallation()
+	return dateInstallation;
 }
 
-void setCoordinates(int latitude, int longitude);
+void Purificateur::setCoordinates(int latitude, int longitude)
 {
 
 }

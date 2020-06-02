@@ -90,7 +90,6 @@ void Lecteur::lireMesure() {
 	string val_str;
 
 	long id;
-	Type type;
 	time_t temps;
 	float valeur;
 

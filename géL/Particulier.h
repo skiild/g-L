@@ -57,8 +57,9 @@ public:
 	//
 	void connexion();
 	void deconnexion();
-	bool estConnecte;
+	bool estConnecte();
 	void ajouterPoint();
+	void setCoordinates(int, int);
 	list<time_t> consulterPoints();
 
 	//------------------------------------------------------------------ PRIVE

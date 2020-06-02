@@ -40,8 +40,7 @@ Particulier::Particulier(long id, long capteurid)
 {
 	this->id = id;
 	this->idCapteur = capteurid;
-	this->totalPoints = 0;
-	this->points = new ArrayList<>();
+	this->points;
 #ifdef MAP
 	cout << "Appel au constructeur de <Particulier>" << endl;
 #endif
@@ -52,29 +51,28 @@ Particulier::~Particulier()
 // Algorithme :
 //
 {
-	delete consulterPoints;
 #ifdef MAP
 	cout << "Appel au destructeur de <Particulier>" << endl;
 #endif
 } //----- Fin de ~Particulier
 
-List <time_t> Particulier::consulterPoints() {
+list <time_t> Particulier::consulterPoints() {
 	return points;
 }
 
 void Particulier::ajouterPoint() {
-	this->points.add(chrono::system_clock::to_time_t(chrono::system_clock::now()));
+	this->points.push_back(chrono::system_clock::to_time_t(chrono::system_clock::now()));
 }
 
-bool Particulier::connexion() {
+void Particulier::connexion() {
 	this->connecte = true;
 }
 
-bool Particulier::deconnexion() {
+void Particulier::deconnexion() {
 	this->connecte = false;
 }
 
-bool Particulier::estConnecte{
+bool Particulier::estConnecte() {
 	return connecte;
 }
 

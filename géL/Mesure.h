@@ -15,5 +15,6 @@ private:
 	long id;
 	time_t temps;
 	float valeur;
+	Type type;
 };
 #endif MESURE

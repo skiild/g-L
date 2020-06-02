@@ -13,7 +13,7 @@ public:
 	float getLongitude();
 	string getDescription();
 	list<Mesure> getMesures();
-	void addMesure(float valeur);
+	void addMesure(float valeur, Mesure::Type type);
 	Capteur(long id, float lattitude, float longitude, string description);
 	~Capteur();
 private:
@@ -22,7 +22,6 @@ private:
 	float lattitude;
 	float longitude;
 	string description;
-	Type type;
 	int nbMesure = 0;
 };
 #endif // !CAPTEUR

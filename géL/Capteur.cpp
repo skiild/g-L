@@ -5,7 +5,7 @@
 bool Capteur::ChercherErreur()
 {
 	for (Mesure m : mesure) {
-		if (m.getValeur < 0)
+		if (m.getValeur() < 0)
 			return true;
 	}
 	return false;
@@ -36,9 +36,9 @@ list<Mesure> Capteur::getMesures()
 	return mesure;
 }
 
-void Capteur::addMesure(float valeur)
+void Capteur::addMesure(float valeur, Mesure::Type type)
 {
-	mesure.push_back(Mesure(valeur, ++nbMesure));
+	mesure.push_back(Mesure(valeur, ++nbMesure, type));
 }
 
 

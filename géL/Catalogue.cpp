@@ -3,7 +3,7 @@ list<Capteur> Catalogue::rechercherCapteursSimilaires(Capteur c, time_t debut, t
 {
 	list<Capteur> res;
 	for (Capteur e : capteur)
-		if (c.getId != e.getId)
+		if (c.getId() != e.getId())
 			for (Mesure m : c.getMesures()) {
 				bool fini = false;
 				if (difftime(m.getTemps(), debut) > 0 && difftime(fin, m.getTemps()) > 0)
@@ -25,7 +25,7 @@ int Catalogue::rechercherQualiteTerritoire(float r, float lon, float lat)
 	return rechercherQualiteMoyenne(r, lon, lat);
 }
 
-int Catalogue::rechercherQualiteMoyenne(float r = NULL, float lon = NULL, float lat = NULL)
+int Catalogue::rechercherQualiteMoyenne(float r, float lon, float lat)
 {
 	time_t limite = chrono::system_clock::to_time_t(chrono::system_clock::now() - chrono::hours(24));
 	vector<CalculMoy> stats;
@@ -47,7 +47,7 @@ int Catalogue::pireIndice(vector<CalculMoy> stats)
 	stats[2].palier = { 30, 55, 85, 110, 135, 165, 200, 275, 400 };
 	stats[3].palier = { 7, 14, 21, 28, 35, 42, 50, 65, 80 };
 	for (CalculMoy s : stats) {
-		for (int i = 0; i < s.palier.size(); ++i)
+		for (unsigned int i = 0; i < s.palier.size(); ++i)
 			if (s.valeur < i) {
 				s.indice = i + 1;
 				break;
@@ -60,7 +60,7 @@ list<Capteur> Catalogue::chercherCapteursDefectueux()
 {
 	list<Capteur> res;
 	for (Capteur c : capteur)
-		if (c.ChercherErreur)
+		if (c.ChercherErreur())
 			res.push_back(c);
 	return res;
 }

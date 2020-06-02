@@ -2,12 +2,12 @@
 
 list<Capteur> Agence::afficherCapteurs()
 {
-	return List<Capteur>();
+	return list<Capteur>();
 }
 
 list<Capteur> Agence::afficherDefectueux()
 {
-	return List<Capteur>();
+	return list<Capteur>();
 }
 
 int Agence::rechercherQualite(int option)

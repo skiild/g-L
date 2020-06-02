@@ -1,6 +1,6 @@
 #include "societe.h"
 
-Societe::Societe(string id)
+Societe::Societe(long id)
 {
 	this->id = id;
 }
