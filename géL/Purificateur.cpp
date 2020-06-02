@@ -1,7 +1,7 @@
 #include "Purificateur.h"
 
 
-Purificateur::Purificateur(int latitude, int longitude, long id, time_t dateInstallation, time_t dateDesinstallation)
+Purificateur::Purificateur(float latitude, float longitude, long id, time_t dateInstallation, time_t dateDesinstallation)
 {
 	this->latitude = latitude;
 	this->longitude = longitude;
@@ -14,12 +14,12 @@ Purificateur::~Purificateur()
 {
 }
 
-int Purificateur::getLatititude()
+float Purificateur::getLatititude()
 {
 	return latitude;
 }
 
-int Purificateur::getlongitude()
+float Purificateur::getlongitude()
 {
 	return longitude;
 }
@@ -39,7 +39,7 @@ time_t Purificateur::getdateDesinstallation()
 	return dateDesinstallation;
 }
 
-void Purificateur::setCoordinates(int latitude, int longitude)
+void Purificateur::setCoordinates(float latitude, float longitude)
 {
 
 	this->latitude = latitude;

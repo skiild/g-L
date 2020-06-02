@@ -6,19 +6,19 @@ class Purificateur {
 
 public:
 
-	Purificateur(int latitude, int longitude, long id, time_t dateInstallation, time_t dateDesinstallation);
+	Purificateur(float latitude, float longitude, long id, time_t dateInstallation, time_t dateDesinstallation);
 	~Purificateur();
 	time_t getdateInstallation();
 	time_t getdateDesinstallation();
-	int getLatititude();
-	int getlongitude();
+	float getLatititude();
+	float getlongitude();
 	long getId();
-	void setCoordinates(int latitude, int longitude);
+	void setCoordinates(float latitude, float longitude);
 private:
 	long id;
 	time_t dateInstallation;
 	time_t dateDesinstallation;
-	int latitude;
-	int longitude;
+	float latitude;
+	float longitude;
 };
 #endif //PURIFICATEUR
