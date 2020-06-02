@@ -12,10 +12,12 @@ public:
 	string getId();
 	int analyserImpactPurificateur(time_t dateDesiree);
 	int rechercher(int recherche, float r, float lon, float lat);
+    list<Purificateur> getPurificateurs();
 
 
 private:
 	long id;
+    list<Purificateur> Purificateurs;
 
 };
 #endif SOCIETE
