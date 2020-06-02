@@ -1,10 +1,10 @@
 #include "Mesure.h"
 
-Mesure::Mesure(float valeur, long id, Type type)
+Mesure::Mesure(float valeur, long id, Type type, time_t temps)
 {
 	this->valeur = valeur;
 	this->id = id;
-	this->temps = time(0);
+	this->temps = temps;
 	this->type = type;
 }
 
