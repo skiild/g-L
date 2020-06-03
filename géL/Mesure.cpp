@@ -10,7 +10,6 @@ Mesure::Mesure(float valeur, long id, Type type, time_t temps)
 
 Mesure::~Mesure()
 {
-	
 }
 
 Mesure::Type Mesure::getType()
@@ -26,4 +25,9 @@ int Mesure::getValeur()
 time_t Mesure::getTemps()
 {
 	return temps;
+}
+
+long Mesure::getId()
+{
+	return id;
 }
