@@ -4,31 +4,31 @@
 
 
 bool Lecteur::flux_capIsGood(){
-	return flux_cap.good();
+    return flux_cap.good();
 }
 
 bool Lecteur::flux_mesIsGood(){
-	return flux_mes.good();
+    return flux_mes.good();
 }
 
 bool Lecteur::flux_purIsGood(){
-	return flux_pur.good();
+    return flux_pur.good();
 }
 
 bool Lecteur::flux_socIsGood(){
-	return flux_soc.good();
+    return flux_soc.good();
 }
 
 bool Lecteur::flux_parIsGood(){
-	return flux_par.good();
+    return flux_par.good();
 }
 
 
 
 
 Capteur Lecteur::lireCapteur(){
-	
-	
+    
+    
 
     //Attributs d'un capteur
     string id_str;
@@ -64,14 +64,14 @@ Capteur Lecteur::lireCapteur(){
 
 
     string::size_type sz;   // alias of size_t
-  	id = stol(id_str,&sz);  // conversion string to long
-  	lat = stof (la,&sz);	// conversion string to float
-  	longit = stof (lo,&sz);	// conversion string to float
+    id = stol(id_str,&sz);  // conversion string to long
+    lat = stof (la,&sz);    // conversion string to float
+    longit = stof (lo,&sz); // conversion string to float
 
 
 
-  	//affichage test
-  	//cout  << "id=" << id << "la=" << lat << "lo=" << longit << endl;
+    //affichage test
+    //cout  << "id=" << id << "la=" << lat << "lo=" << longit << endl;
 
     Capteur cp(id, lat, longit, "");
     return cp;
@@ -81,7 +81,7 @@ Capteur Lecteur::lireCapteur(){
 
 Mesure Lecteur::lireMesure(){
 
-	//Attributs d'une mesure
+    //Attributs d'une mesure
     string id_str;
     string date_str;
     string type_str;
@@ -116,7 +116,7 @@ Mesure Lecteur::lireMesure(){
 
 
     pos = line.find(";");    
-  	type_str = line.substr(0, pos);
+    type_str = line.substr(0, pos);
     line = line.substr(pos+1, line.length()-1);
 
 
@@ -125,55 +125,53 @@ Mesure Lecteur::lireMesure(){
 
 
     string::size_type sz;   // alias of size_t
-  	id = stol(id_str,&sz);  // conversion string to long
-  	valeur = stof (val_str,&sz);	// conversion string to float
+    id = stol(id_str,&sz);  // conversion string to long
+    valeur = stof (val_str,&sz);    // conversion string to float
 
 
-   	struct tm info;
+    struct tm info;
 
-	info.tm_year = stoi(date_str.substr(0, 4)) - 1900;
-	info.tm_mon = stoi(date_str.substr(5, 2)) - 1;
-	info.tm_mday = stoi(date_str.substr(8, 2));
-	info.tm_hour = stoi(date_str.substr(11, 2));
-	info.tm_min = stoi(date_str.substr(14, 2));
-	info.tm_sec = stoi(date_str.substr(17, 2));
-	info.tm_isdst = -1;
+    info.tm_year = stoi(date_str.substr(0, 4)) - 1900;
+    info.tm_mon = stoi(date_str.substr(5, 2)) - 1;
+    info.tm_mday = stoi(date_str.substr(8, 2));
+    info.tm_hour = stoi(date_str.substr(11, 2));
+    info.tm_min = stoi(date_str.substr(14, 2));
+    info.tm_sec = stoi(date_str.substr(17, 2));
+    info.tm_isdst = -1;
 
-	temps = mktime(&info);
+    temps = mktime(&info);
 
-	/* affichage test
-
-	struct tm * timeinfo;
-	timeinfo = localtime (&temps);
-	printf ("%s", asctime(timeinfo));
-
-	cout << "//" << id << "//" << type_str << "//" << valeur << "//" << endl;
-	
-	*/
+    /* affichage test
+    struct tm * timeinfo;
+    timeinfo = localtime (&temps);
+    printf ("%s", asctime(timeinfo));
+    cout << "//" << id << "//" << type_str << "//" << valeur << "//" << endl;
+    
+    */
 
 
-	if ( type_str.compare("O3")  == 0){
-		type = Mesure::Type::O3;
-	}
+    if ( type_str.compare("O3")  == 0){
+        type = Mesure::Type::O3;
+    }
 
 
-	if ( type_str.compare("S02")  == 0){
-		type = Mesure::Type::S02;
-	}
+    if ( type_str.compare("S02")  == 0){
+        type = Mesure::Type::S02;
+    }
 
-	if ( type_str.compare("N02")  == 0){
-		type = Mesure::Type::N02;
-	}
+    if ( type_str.compare("N02")  == 0){
+        type = Mesure::Type::N02;
+    }
 
 
-	if ( type_str.compare("PM10")  == 0){
-		type = Mesure::Type::PM10;
-	}
+    if ( type_str.compare("PM10")  == 0){
+        type = Mesure::Type::PM10;
+    }
 
-	
-	Mesure m(valeur, id, type, temps);
-	return m;
-	
+    
+    Mesure m(valeur, id, type, temps);
+    return m;
+    
 }
 
 
@@ -206,12 +204,12 @@ Purificateur Lecteur::lirePurificateur(){
     line = line.substr(pos+1, line.length()-1);         
     pos = line.find(";");
 
-    lat = stof (line.substr(0, pos),&sz);	// conversion string to float
+    lat = stof (line.substr(0, pos),&sz);   // conversion string to float
     
     line = line.substr(pos+1, line.length()-1);         
     pos = line.find(";");
 
-    longit = stof (line.substr(0, pos),&sz);	// conversion string to float
+    longit = stof (line.substr(0, pos),&sz);    // conversion string to float
 
     line = line.substr(pos+2, line.length()-1);         
     pos = line.find(";");
@@ -221,47 +219,47 @@ Purificateur Lecteur::lirePurificateur(){
     
     struct tm info;
 
-	info.tm_year = stoi(date.substr(0, 4)) - 1900;
-	info.tm_mon = stoi(date.substr(5, 2)) - 1;
-	info.tm_mday = stoi(date.substr(8, 2));
-	info.tm_hour = stoi(date.substr(11, 2));
-	info.tm_min = stoi(date.substr(14, 2));
-	info.tm_sec = stoi(date.substr(17, 2));
-	info.tm_isdst = -1;
+    info.tm_year = stoi(date.substr(0, 4)) - 1900;
+    info.tm_mon = stoi(date.substr(5, 2)) - 1;
+    info.tm_mday = stoi(date.substr(8, 2));
+    info.tm_hour = stoi(date.substr(11, 2));
+    info.tm_min = stoi(date.substr(14, 2));
+    info.tm_sec = stoi(date.substr(17, 2));
+    info.tm_isdst = -1;
 
-	d1 = mktime(&info);
+    d1 = mktime(&info);
 
-	line = line.substr(pos+1, line.length()-1);         
+    line = line.substr(pos+1, line.length()-1);         
     pos = line.find(";");
 
     date = line.substr(0, pos);
 
     info.tm_year = stoi(date.substr(0, 4)) - 1900;
-	info.tm_mon = stoi(date.substr(5, 2)) - 1;
-	info.tm_mday = stoi(date.substr(8, 2));
-	info.tm_hour = stoi(date.substr(11, 2));
-	info.tm_min = stoi(date.substr(14, 2));
-	info.tm_sec = stoi(date.substr(17, 2));
-	
-	d2 = mktime(&info);
+    info.tm_mon = stoi(date.substr(5, 2)) - 1;
+    info.tm_mday = stoi(date.substr(8, 2));
+    info.tm_hour = stoi(date.substr(11, 2));
+    info.tm_min = stoi(date.substr(14, 2));
+    info.tm_sec = stoi(date.substr(17, 2));
+    
+    d2 = mktime(&info);
 
 
-	/* affichage
-	cout << "//" << id << "//" << lat << "//" << longit  << endl;
-	struct tm * timeinfo;
-	timeinfo = localtime (&d1);
-	printf ("%s", asctime(timeinfo));
-	timeinfo = localtime (&d2);
-	printf ("%s", asctime(timeinfo));
-	*/
+    /* affichage
+    cout << "//" << id << "//" << lat << "//" << longit  << endl;
+    struct tm * timeinfo;
+    timeinfo = localtime (&d1);
+    printf ("%s", asctime(timeinfo));
+    timeinfo = localtime (&d2);
+    printf ("%s", asctime(timeinfo));
+    */
 
-	Purificateur p(lat, longit, id, d1, d2);
+    Purificateur p(lat, longit, id, d1, d2);
 
-	return p;
+    return p;
 
 }
 
-void Lecteur::lireSociete(){
+Societe Lecteur::lireSociete(){
 
 
 //Attributs d'une entreprise
@@ -285,7 +283,7 @@ void Lecteur::lireSociete(){
   
     line = line.substr(pos+1, line.length()-1); 
 
-	pre = line.find("r");  
+    pre = line.find("r");  
     pos = line.find(";");    
     taille = pos - pre - 1;
     id_pur = stol(line.substr(pre+1, taille) ,&sz);
@@ -293,16 +291,13 @@ void Lecteur::lireSociete(){
     
 
 
-	// affichage
-	//cout << "//" << id_sco << "//" << id_pur << "//"  << endl;
+    // affichage
+    //cout << "//" << id_sco << "//" << id_pur << "//"  << endl;
 
-	/*
-	Societe en;
-	en(id_soc, id_pur);
-
-	return en;
-
-	*/
+    
+    Societe s(id_soc);
+    return s;
+    
 }
 
 
@@ -330,40 +325,40 @@ Particulier Lecteur::lireParticulier(){
   
     line = line.substr(pos+1, line.length()-1); 
 
-	pre = line.find("r");  
+    pre = line.find("r");  
     pos = line.find(";");    
     taille = pos - pre - 1;
     id_pur = stol(line.substr(pre+1, taille) ,&sz);
 
     
-	// affichage
-	//cout << "//" << id_par << "//" << id_pur << "//"  << endl;
+    // affichage
+    //cout << "//" << id_par << "//" << id_pur << "//"  << endl;
 
 
-	Particulier pr(id_par, id_pur);
-	return pr;
+    Particulier pr(id_par, id_pur);
+    return pr;
 
-	
+    
 
 }
 
 
 Lecteur::Lecteur(){
 
-	flux_cap.open("dataset/sensors.csv");
-	flux_mes.open("dataset/measurements.csv");
-	flux_pur.open("dataset/cleaners.csv");
-	flux_soc.open("dataset/providers.csv");
-	flux_par.open("dataset/users.csv");
-	
+    flux_cap.open("dataset/sensors.csv");
+    flux_mes.open("dataset/measurements.csv");
+    flux_pur.open("dataset/cleaners.csv");
+    flux_soc.open("dataset/providers.csv");
+    flux_par.open("dataset/users.csv");
+    
 }
 
 Lecteur::~Lecteur(){
 
-	flux_cap.close();
-	flux_mes.close();
-	flux_pur.close();
-	flux_soc.close();
-	flux_par.close();
+    flux_cap.close();
+    flux_mes.close();
+    flux_pur.close();
+    flux_soc.close();
+    flux_par.close();
 
 }

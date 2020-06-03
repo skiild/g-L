@@ -6,7 +6,7 @@
 
 #include "Capteur.h"
 #include "Purificateur.h"
-//#include "Societe.h"
+#include "Societe.h"
 #include "Particulier.h"
 
 
@@ -23,7 +23,6 @@ public:
 
 	/*
 	EXEMPLE
-
 	while( flux_capIsGood() ){
 		Capteur c = lireCapteur();
 	}	
@@ -39,11 +38,10 @@ public:
 
 //-------------METHODES DE LECTURE DE FICHIERS
 
-	//type de retour à changer
 	Capteur lireCapteur(); 			
 	Mesure lireMesure(); 			
-	Purificateur lirePurificateur();// retourne un Purificateur
-	void lireSociete();				
+	Purificateur lirePurificateur();
+	Societe lireSociete();				
 	Particulier lireParticulier();			
 
 	Lecteur();	
