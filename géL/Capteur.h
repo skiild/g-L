@@ -1,7 +1,7 @@
 #ifndef CAPTEUR
 #define CAPTEUR
 #include <string>
-#include <list>
+#include <vector>
 #include "Mesure.h"
 using namespace std;
 
@@ -12,13 +12,13 @@ public:
 	float getLattitude();
 	float getLongitude();
 	string getDescription();
-	list<Mesure> getMesures();
+	vector<Mesure> getMesures();
 	void addMesure(Mesure &m);
 	string afficher();
 	Capteur(long id, float lattitude, float longitude, string description);
 	~Capteur();
 private:
-	list<Mesure> mesure;
+	vector<Mesure> mesure;
 	long id;
 	float lattitude;
 	float longitude;

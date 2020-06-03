@@ -1,7 +1,8 @@
 #include "Catalogue.h"
-list<Capteur> Catalogue::rechercherCapteursSimilaires(Capteur c, time_t debut, time_t fin)
+vector<Capteur> Catalogue::capteur;
+vector<Capteur> Catalogue::rechercherCapteursSimilaires(Capteur c, time_t debut, time_t fin)
 {
-	list<Capteur> res;
+	vector<Capteur> res;
 	for (Capteur e : capteur)
 		if (c.getId() != e.getId())
 			for (Mesure m : c.getMesures()) {
@@ -56,21 +57,21 @@ int Catalogue::pireIndice(vector<CalculMoy> stats)
 	return max({ stats[0].indice, stats[1].indice, stats[2].indice, stats[3].indice });
 }
 
-list<Capteur> Catalogue::chercherCapteursDefectueux()
+vector<Capteur> Catalogue::chercherCapteursDefectueux()
 {
-	list<Capteur> res;
+	vector<Capteur> res;
 	for (Capteur c : capteur)
 		if (c.ChercherErreur())
 			res.push_back(c);
 	return res;
 }
 
-list<Mesure> Catalogue::afficherMesures(Capteur c)
+vector<Mesure> Catalogue::afficherMesures(Capteur c)
 {
 	return c.getMesures();
 }
 
-list<Capteur> Catalogue::afficherCapteurs()
+vector<Capteur> Catalogue::afficherCapteurs()
 {
 	return capteur;
 }

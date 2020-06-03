@@ -31,7 +31,7 @@ string Capteur::getDescription()
 	return description;
 }
 
-list<Mesure> Capteur::getMesures()
+vector<Mesure> Capteur::getMesures()
 {
 	return mesure;
 }
