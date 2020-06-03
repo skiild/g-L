@@ -80,7 +80,13 @@ void Catalogue::ajouterCapteur(Capteur c)
 	capteur.push_back(c);
 }
 
-void Catalogue::ajouterMesure(Capteur c, Mesure m)
+void Catalogue::ajouterMesure(long idCapteur, Mesure &m)
 {
-	c.addMesure(m);
+
+	for (Capteur c : capteur){
+		if (c.getId() == idCapteur){
+			c.addMesure(m);
+		}
+	}
+	
 }
