@@ -6,13 +6,15 @@
 #include <chrono>
 #include "Capteur.h"
 using namespace std;
+
+
 class Catalogue {
 public:
 	static vector<Capteur> rechercherCapteursSimilaires(Capteur c, time_t debut, time_t fin);
 	static int rechercherQualiteTerritoire(float r, float lon, float lat);
 	static int rechercherQualiteMoyenne(float r = NULL, float lon = NULL, float lat = NULL);
 	static vector<Capteur> chercherCapteursDefectueux();
-	static vector<Mesure> afficherMesures(Capteur c);
+	static vector<Mesure> afficherMesures(long idCapteur);
 	static vector<Capteur>afficherCapteurs();
 	static void ajouterCapteur(Capteur c);
 	static void ajouterMesure(long idCapteur, Mesure &m);

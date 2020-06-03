@@ -66,9 +66,17 @@ vector<Capteur> Catalogue::chercherCapteursDefectueux()
 	return res;
 }
 
-vector<Mesure> Catalogue::afficherMesures(Capteur c)
+vector<Mesure> Catalogue::afficherMesures(long idCapteur)
 {
-	return c.getMesures();
+
+	vector<Mesure> res;
+	for (Capteur c : capteur){
+
+		if(c.getId() == idCapteur)
+			return c.getMesures();
+	}
+	
+	return res;
 }
 
 vector<Capteur> Catalogue::afficherCapteurs()
