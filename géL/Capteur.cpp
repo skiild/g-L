@@ -36,9 +36,17 @@ list<Mesure> Capteur::getMesures()
 	return mesure;
 }
 
-void Capteur::addMesure(Mesure m)
+void Capteur::addMesure(Mesure &m)
 {
 	mesure.push_back(m);
+}
+
+string Capteur::afficher()
+{
+
+	return "Capteur " + std::to_string(this->id) + " : lat=" 
+	+ std::to_string(this->lattitude) + ", long=" + std::to_string(this->longitude);
+	
 }
 
 
