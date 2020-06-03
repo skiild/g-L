@@ -37,7 +37,7 @@ int Catalogue::rechercherQualiteMoyenne(float r, float lon, float lat)
 					++stats[m.getType()].compteur;
 				}
 			}
-	return pireIndice(stats); //todo
+	return pireIndice(stats);
 }
 
 int Catalogue::pireIndice(vector<CalculMoy> stats)

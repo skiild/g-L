@@ -1,5 +1,6 @@
 #ifndef MESURE
 #define MESURE
+#define _CRT_SECURE_NO_WARNINGS
 #include <ctime>
 #include <string>
 using namespace std;

@@ -39,6 +39,7 @@ int Societe::analyserImpactPurificateur(float r, long id, time_t dateDesiree, Ca
             return result;
         }
     }
+	return NULL;
 }
 
 void Societe::addPurificateur(Purificateur &p)
