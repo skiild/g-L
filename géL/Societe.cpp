@@ -1,5 +1,4 @@
-#include "societe.h"
-#include "Purificateur.h"
+#include "Societe.h"
 Societe::Societe(long id)
 {
 	this->id = id;
@@ -17,12 +16,12 @@ int Societe::rechercher(int option, float r, float lon, float lat)
 
         case 1 :
 
-            return rechercherQualiteTerritoire( r, lon, lat);
+            return Catalogue::rechercherQualiteTerritoire( r, lon, lat);
             break;
 
         case 2 :
             
-            return rechercherQualiteMoyenne( r,  lon, lat);
+            return Catalogue::rechercherQualiteMoyenne( r,  lon, lat);
             break;
             
         default :
@@ -36,7 +35,7 @@ int Societe::analyserImpactPurificateur(float r, long id, time_t dateDesiree)
         if (p.getId() == id) //On cherche le purificateur qui nous interesse
         {
             int result ;
-            result=  rechercherQualiteMoyenne(r, p.getlongitude(),p.getLatitude());
+            result=  Catalogue::rechercherQualiteMoyenne(r, p.getlongitude(),p.getLatitude());
             return result;
         }
     }

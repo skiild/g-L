@@ -1,6 +1,7 @@
 #ifndef SOCIETE
 #define SOCIETE
 #include "Purificateur.h"
+#include "Catalogue.h"
 #include <string>
 #include <list>
 #include <ctime>
