@@ -14,7 +14,7 @@ Purificateur::~Purificateur()
 {
 }
 
-float Purificateur::getLatititude()
+float Purificateur::getLatitude()
 {
 	return latitude;
 }

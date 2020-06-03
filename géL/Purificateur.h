@@ -10,7 +10,7 @@ public:
 	~Purificateur();
 	time_t getdateInstallation();
 	time_t getdateDesinstallation();
-	float getLatititude();
+	float getLatitude();
 	float getlongitude();
 	long getId();
 	void setCoordinates(float latitude, float longitude);
