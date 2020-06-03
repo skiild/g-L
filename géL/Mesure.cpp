@@ -17,7 +17,7 @@ Mesure::Type Mesure::getType()
 	return type;
 }
 
-int Mesure::getValeur()
+float Mesure::getValeur()
 {
 	return valeur;
 }

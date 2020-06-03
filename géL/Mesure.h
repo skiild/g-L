@@ -10,7 +10,7 @@ public:
 	
 	Mesure(float valeur, long id, Type type, time_t temps);
 	~Mesure();
-	int getValeur();
+	float getValeur();
 	time_t getTemps();
 	Type getType();
 	long getId();
