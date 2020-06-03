@@ -13,6 +13,7 @@ public:
 	time_t getTemps();
 	Type getType();
 	long getId();
+	string afficher();
 	
 private:
 	long id;

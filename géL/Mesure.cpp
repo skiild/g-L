@@ -31,3 +31,14 @@ long Mesure::getId()
 {
 	return id;
 }
+
+string Mesure::afficher(){
+
+	struct tm * timeinfo;
+    timeinfo = localtime (&temps);
+
+	return "Mesure " + std::to_string(this->id) + " : valeur=" 
+	+ std::to_string(this->valeur) + ", date=" + asctime(timeinfo);
+
+	//+ ", type=" + std::to_string(this->type);
+}
