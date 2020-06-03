@@ -13,15 +13,14 @@ public:
 	Societe(long id);
 	~Societe();
 	string getId();
-	int analyserImpactPurificateur(float r, long id, time_t dateDesiree);
-	int rechercher(int recherche, float r, float lon, float lat);
+	int analyserImpactPurificateur(float r, long id, time_t dateDesiree, Catalogue &cat);
+	int rechercher(int recherche, float r, float lon, float lat, Catalogue &cat);
     list<Purificateur> getPurificateurs();
-    void addPurificateur(float latitude, float longitude, long id, time_t dateInstallation, time_t dateDesinstallation );
+    void addPurificateur(Purificateur &p);
 
 private:
 	long id;
     list<Purificateur> purificateurs;
 
 };
-#endif SOCIETE
-
+#endif //SOCIETE
