@@ -31,7 +31,6 @@ int main() {
 	}
 
 	while (lecteur->flux_mesIsGood()) {
-		compteur++;
 		Mesure mes = lecteur->lireMesure();
 		Catalogue::ajouterMesure(mes.getId(), mes);
 	}
