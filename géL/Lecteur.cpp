@@ -23,6 +23,9 @@ bool Lecteur::flux_parIsGood(){
     return flux_par.good();
 }
 
+
+
+
 Capteur Lecteur::lireCapteur(){
     
     
@@ -145,6 +148,7 @@ Mesure Lecteur::lireMesure(){
     cout << "//" << id << "//" << type_str << "//" << valeur << "//" << endl;
     
     */
+
 
     if ( type_str.compare("O3")  == 0){
         type = Mesure::Type::O3;
