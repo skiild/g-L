@@ -66,9 +66,13 @@ vector<Capteur> Catalogue::chercherCapteursDefectueux()
 	return res;
 }
 
-vector<Mesure> Catalogue::afficherMesures(Capteur c)
+vector<Mesure> Catalogue::afficherMesures(long i)
 {
-	return c.getMesures();
+	for (Capteur c : capteur) {
+		if (c.getId() == i) {
+			return c.getMesures();
+		}
+	}
 }
 
 vector<Capteur> Catalogue::afficherCapteurs()
@@ -81,12 +85,13 @@ void Catalogue::ajouterCapteur(Capteur c)
 	capteur.push_back(c);
 }
 
-void Catalogue::ajouterMesure(long idCapteur, Mesure &m)
+void Catalogue::ajouterMesure(long idCapteur, Mesure m)
 {
 
-	for (Capteur c : capteur){
+	for (Capteur& c : capteur){
 		if (c.getId() == idCapteur){
 			c.addMesure(m);
+			break;
 		}
 	}
 	
