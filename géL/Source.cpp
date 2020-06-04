@@ -42,9 +42,9 @@ int main() {
         printf("------------------------\n");
         printf("\t1: afficher liste des capteurs\n");
         printf("\t2: afficher les mesures d'un capteur\n");
-        printf("\t3: rechercher qualité moyenne totale\n");
+        printf("\t3: rechercher qualite moyenne totale\n");
         printf("------------------------\n");
-        printf("\t4: rechercher qualité d'un territoire\n");
+        printf("\t4: rechercher qualite d'un territoire\n");
         printf("\t5: rechercher capteurs defectueux\n");
         printf("\t6: rechercher capteurs similaires\n");
         printf("\t0: quitter\n");
@@ -89,7 +89,7 @@ int main() {
         else if(choix == "3")
         {
             
-            cout << endl << "Indice ATMO sur une échelle de 0 à 10 : " <<
+            cout << endl << "Indice ATMO sur une echelle de 0 a 10 : " <<
             Catalogue::rechercherQualiteMoyenne();
             
         }
@@ -122,18 +122,22 @@ int main() {
         }
 
 
-        else if(choix == "6"){
+		else if (choix == "6") {
+			long id;
 
-            /*for (Capteur c : Catalogue::rechercherCapteursSimilaires() ) {
-                cout << c.afficher() << endl;       
-            }
-            (Capteur c, time_t debut, time_t fin);*/
-        }
+			cout << endl << "id du capteur (entre 0 et 99)-> ";
+			cin >> id;
 
-        else
-        {
-            printf("choix incorrect\n");
-        }
+			for (Capteur c : Catalogue::afficherCapteurs()) {
+				if (c.getId() == id) {
+					for (Capteur ci : Catalogue::rechercherCapteursSimilaires(c, NULL, NULL)) {
+						cout << ci.afficher() << endl;
+					}
+				}
+
+			}
+			
+		}
     }
 
     printf("fin\n");

@@ -7,9 +7,9 @@ vector<Capteur> Catalogue::rechercherCapteursSimilaires(Capteur c, time_t debut,
 		if (c.getId() != e.getId())
 			for (Mesure m : c.getMesures()) {
 				bool fini = false;
-				if (difftime(m.getTemps(), debut) > 0 && difftime(fin, m.getTemps()) > 0)
+				//if (difftime(m.getTemps(), debut) > 0 && difftime(fin, m.getTemps()) > 0)
 					for (Mesure n : e.getMesures())
-						if (difftime(n.getTemps(), debut) > 0 && difftime(fin, n.getTemps()) > 0)
+						//if (difftime(n.getTemps(), debut) > 0 && difftime(fin, n.getTemps()) > 0)
 							if (m.getValeur() == n.getValeur()) {
 								res.push_back(e);
 								fini = true;
