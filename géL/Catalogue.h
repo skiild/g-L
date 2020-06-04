@@ -18,7 +18,7 @@ public:
 	static void ajouterMesure(long idCapteur, Mesure& m);
 private:
 	struct CalculMoy { int compteur = 0; float valeur = 0; vector<float> palier; int indice = 10; };
-	static int pireIndice(vector<CalculMoy> stats);
+	static int pireIndice(vector<CalculMoy> &stats);
 	static vector<Capteur> capteur;
 
 };

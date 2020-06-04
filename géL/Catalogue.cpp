@@ -30,26 +30,31 @@ int Catalogue::rechercherQualiteMoyenne(float r, float lon, float lat, bool zone
 {
 	time_t limite = chrono::system_clock::to_time_t(chrono::system_clock::now() - chrono::hours(24));
 	vector<CalculMoy> stats;
+	for (unsigned int i = 0; i < 4; ++i) {
+		CalculMoy x;
+		stats.push_back(x);
+	}
 	for (Capteur c : capteur)
 		if (!c.ChercherErreur() && (!zone || (abs(c.getLongitude() - lon) <= r && abs(c.getLattitude() - lat) <= r)))
 			for (Mesure m : c.getMesures()) {
-				if (difftime(m.getTemps(), limite) > 0) {
+				//if (difftime(m.getTemps(), limite) > 0) {
 					stats[m.getType()].valeur += m.getValeur();
-					++stats[m.getType()].compteur;
-				}
+					stats[m.getType()].compteur++;
+				//}
 			}
 	return pireIndice(stats);
 }
 
-int Catalogue::pireIndice(vector<CalculMoy> stats)
+int Catalogue::pireIndice(vector<CalculMoy> &stats)
 {
 	stats[0].palier = { 30, 55, 80, 105, 130, 150, 180, 210, 240 };
 	stats[1].palier = { 40, 80, 120, 160, 200, 250, 300, 400, 500 };
 	stats[2].palier = { 30, 55, 85, 110, 135, 165, 200, 275, 400 };
 	stats[3].palier = { 7, 14, 21, 28, 35, 42, 50, 65, 80 };
-	for (CalculMoy s : stats) {
+	for (CalculMoy &s : stats) {
+		s.valeur = s.valeur / s.compteur;
 		for (unsigned int i = 0; i < s.palier.size(); ++i)
-			if (s.valeur < i) {
+			if (s.valeur < s.palier[i]) {
 				s.indice = i + 1;
 				break;
 			}
