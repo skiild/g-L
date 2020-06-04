@@ -30,13 +30,10 @@ int main() {
 		Catalogue::ajouterCapteur(lecteur->lireCapteur());
 	}
 
-	int compteur = 0;
 	while (lecteur->flux_mesIsGood()) {
 		compteur++;
 		Mesure mes = lecteur->lireMesure();
 		Catalogue::ajouterMesure(mes.getId(), mes);
-		if (compteur < 10)
-			cout << Catalogue::afficherMesures(0).size() << endl;
 	}
 	
 	Societe s1 = lecteur->lireSociete();
@@ -77,7 +74,7 @@ int main() {
 			for (Capteur c : Catalogue::afficherCapteurs()) {
 				cout << "capteur no " << c.getId() << endl;
 				for (Mesure m : c.getMesures())
-					cout << "yo" << endl;
+					cout << m.afficher() << endl;
 			}
 
 		}
