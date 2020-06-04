@@ -10,7 +10,7 @@ class Catalogue {
 public:
 	static vector<Capteur> rechercherCapteursSimilaires(Capteur c, time_t debut, time_t fin);
 	static int rechercherQualiteTerritoire(float r, float lon, float lat);
-	static int rechercherQualiteMoyenne(float r = NULL, float lon = NULL, float lat = NULL);
+	static int rechercherQualiteMoyenne(float r = NULL, float lon = NULL, float lat = NULL, bool zone = false);
 	static vector<Capteur> chercherCapteursDefectueux();
 	static vector<Mesure> afficherMesures(long c);
 	static vector<Capteur>afficherCapteurs();

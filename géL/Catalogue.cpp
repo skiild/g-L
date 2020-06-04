@@ -23,15 +23,15 @@ vector<Capteur> Catalogue::rechercherCapteursSimilaires(Capteur c, time_t debut,
 
 int Catalogue::rechercherQualiteTerritoire(float r, float lon, float lat)
 {
-	return rechercherQualiteMoyenne(r, lon, lat);
+	return rechercherQualiteMoyenne(r, lon, lat, true);
 }
 
-int Catalogue::rechercherQualiteMoyenne(float r, float lon, float lat)
+int Catalogue::rechercherQualiteMoyenne(float r, float lon, float lat, bool zone)
 {
 	time_t limite = chrono::system_clock::to_time_t(chrono::system_clock::now() - chrono::hours(24));
 	vector<CalculMoy> stats;
 	for (Capteur c : capteur)
-		if (!c.ChercherErreur() && (r == NULL || (abs(c.getLongitude() - lon) <= r && abs(c.getLattitude() - lat) <= r)))
+		if (!c.ChercherErreur() && (!zone || (abs(c.getLongitude() - lon) <= r && abs(c.getLattitude() - lat) <= r)))
 			for (Mesure m : c.getMesures()) {
 				if (difftime(m.getTemps(), limite) > 0) {
 					stats[m.getType()].valeur += m.getValeur();
